@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Calculator</title>
+<style>
+  html, body {
+    margin: 0; padding: 0; background: white; font-family: Arial, sans-serif;
+  }
+  .calsi {
+    width: 350px; margin: 100px auto; background: white; border-radius: 20px;
+    box-shadow: 0 0 6px #ccc; text-align: center; padding: 0;
+  }
+  h1 {
+    margin: 0; padding: 8px 0; font-size: 40px; color: black;
+    background: white; border-radius: 20px 20px 0 0; text-transform: capitalize;
+    font-family: Calibri, sans-serif;
+  }
+  #inp {
+    width: 100%; padding: 8px 0; font-size: 16px; text-align: center;
+    border: 1px solid #ccc; outline: none; background: white; color: black;
+  }
+  .btns {
+    padding: 10px 0;
+  }
+  button {
+    width: 70px; height: 70px; margin: 10px 5px;
+    font-size: 30px; border-radius: 5px; border: 1px solid #ccc; outline: none;
+    background: white; color: black; cursor: pointer;
+  }
+  button:hover {
+    background-color: #f0f0f0;
+  }
+  #equal {
+    font-size: 20px;
+  }
+  .but_cls {
+    background-color: white; color: black; border-color: #ccc;
+  }
+</style>
+</head>
+<body>
+  <div class="calsi">
+    <h1>Calculator</h1>
+    <input type="text" id="inp" readonly>
+    <div class="btns">
+      <button class="but_cls" onclick="cls()">c</button>
+      <button onclick="AT_add('/')">/</button>
+      <button onclick="AT_add('*')">*</button>
+      <button class="but_cls" onclick="cancel()">⌫</button>
+      <button onclick="AT_add(7)">7</button>
+      <button onclick="AT_add(8)">8</button>
+      <button onclick="AT_add(9)">9</button>
+      <button onclick="AT_add('-')">-</button>
+      <button onclick="AT_add(4)">4</button>
+      <button onclick="AT_add(5)">5</button>
+      <button onclick="AT_add(6)">6</button>
+      <button onclick="AT_add('+')">+</button>
+      <button onclick="AT_add(1)">1</button>
+      <button onclick="AT_add(2)">2</button>
+      <button onclick="AT_add(3)">3</button>
+      <button class="but_cls" id="equal" onclick="exe()">=</button>
+      <button onclick="AT_add(0)">0</button>
+      <button onclick="AT_add('.')">.</button>
+    </div>
+  </div>
+
+<script>
+  const val = document.getElementById("inp");
+  function AT_add(v) { val.value += v; }
+  function cls() { val.value = ""; }
+  function exe() { try { val.value = eval(val.value); } catch { val.value = "Error"; } }
+  function cancel() { val.value = val.value.slice(0, -1); }
+</script>
+</body>
+</html>
+
